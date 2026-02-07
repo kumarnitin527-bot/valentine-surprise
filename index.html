@@ -17,7 +17,6 @@ align-items:center;
 color:white;
 }
 
-/* Dark layer */
 .overlay{
 position:fixed;
 top:0;
@@ -28,11 +27,10 @@ background:rgba(0,0,0,0.6);
 z-index:1;
 }
 
-/* Card */
 .card{
 position:relative;
 z-index:2;
-background:rgba(0,0,0,0.6);
+background:rgba(0,0,0,0.7);
 padding:30px;
 border-radius:15px;
 text-align:center;
@@ -40,16 +38,12 @@ width:90%;
 max-width:500px;
 }
 
-h1{
-margin-bottom:10px;
-}
-
 .photos{
 display:flex;
 justify-content:center;
 gap:15px;
 flex-wrap:wrap;
-margin:15px 0;
+margin:20px 0;
 }
 
 .photos img{
@@ -81,5 +75,27 @@ font-size:18px;
 
 <div class="overlay"></div>
 
-<audio id="bgMusic" loop>
-<source src="music.mp3" ty
+<div class="card">
+<h1>Happy Rose Day 🌹</h1>
+<h2>My Priyanka (Bhutki) ❤️</h2>
+
+<div class="photos">
+<img src="photo1.jpg">
+<img src="photo2.jpg">
+</div>
+
+<button onclick="showLove()">Open Your Surprise 💖</button>
+
+<div class="loveMessage" id="loveMessage">
+You are my today, tomorrow and forever ❤️🌹
+</div>
+</div>
+
+<script>
+function showLove(){
+document.getElementById("loveMessage").style.display="block";
+}
+</script>
+
+</body>
+</html>
