@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Valentine's Day ❤️</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Segoe UI', sans-serif;
+        background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    .card {
+        background: white;
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        max-width: 500px;
+        animation: fadeIn 2s ease-in-out;
+    }
+
+    h1 {
+        color: #ff4b5c;
+        font-size: 32px;
+    }
+
+    p {
+        font-size: 18px;
+        color: #555;
+        line-height: 1.6;
+    }
+
+    .heart {
+        font-size: 40px;
+        animation: heartbeat 1.2s infinite;
+    }
+
+    button {
+        background: #ff4b5c;
+        border: none;
+        padding: 12px 25px;
+        color: white;
+        font-size: 16px;
+        border-radius: 25px;
+        cursor: pointer;
+        margin-top: 20px;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background: #ff1e3c;
+        transform: scale(1.05);
+    }
+
+    @keyframes heartbeat {
+        0% { transform: scale(1); }
+        25% { transform: scale(1.2); }
+        50% { transform: scale(1); }
+        75% { transform: scale(1.2); }
+        100% { transform: scale(1); }
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+</head>
+<body>
+
+<div class="card">
+    <div class="heart">❤️</div>
+    <h1>Happy Valentine's Day, My Love 💕</h1>
+    <p>
+        From the day you came into my life, everything became more beautiful.  
+        Your smile is my favorite place, and your love is my biggest blessing.  
+        I am so lucky to have you.  
+    </p>
+    <p><strong>I Love You Forever ❤️</strong></p>
+    <button onclick="showMessage()">Click for a Surprise 💌</button>
+</div>
+
+<script>
+function showMessage() {
+    alert("You are my today, tomorrow, and always. 💖 Happy Valentine’s Day, my love!");
+}
+</script>
+
+</body>
+</html>
