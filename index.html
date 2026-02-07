@@ -32,7 +32,7 @@ top:0;
 left:0;
 width:100%;
 height:100%;
-background:rgba(0,0,0,0.65);
+background:rgba(0,0,0,0.7);
 z-index:-1;
 }
 
@@ -71,11 +71,6 @@ height:120px;
 border-radius:15px;
 object-fit:cover;
 box-shadow:0 10px 25px rgba(0,0,0,0.7);
-transition:0.3s;
-}
-
-.photos img:hover{
-transform:scale(1.05);
 }
 
 p{
@@ -84,9 +79,9 @@ font-size:16px;
 }
 
 button{
-padding:10px 25px;
+padding:12px 28px;
 border:none;
-border-radius:25px;
+border-radius:30px;
 background:white;
 color:#ff4e50;
 font-weight:bold;
@@ -97,7 +92,6 @@ transition:0.3s;
 button:hover{
 background:#ff4e50;
 color:white;
-transform:scale(1.05);
 }
 
 /* Falling roses */
@@ -116,17 +110,47 @@ opacity:0;
 }
 }
 
-/* Responsive */
+/* Love Screen */
+.loveScreen{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.95);
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+opacity:0;
+visibility:hidden;
+transition:0.8s;
+}
+
+.loveScreen.active{
+opacity:1;
+visibility:visible;
+}
+
+.loveContent{
+max-width:600px;
+}
+
+.loveContent h1{
+font-size:32px;
+margin-bottom:20px;
+}
+
+.loveContent p{
+font-size:18px;
+line-height:1.6;
+}
+
 @media(max-width:480px){
 .photos img{
 width:100px;
 height:100px;
-}
-h1{
-font-size:22px;
-}
-h2{
-font-size:18px;
 }
 }
 </style>
@@ -148,43 +172,32 @@ font-size:18px;
 </div>
 
 <p>
-Bhutki ❤️<br>
-You are my peace, my happiness,  
-and my favorite notification every day.
+Bhutki ❤️  
+You make my world brighter every single day.
 </p>
 
-<button onclick="showLove()">Tap Here Bhutki 💖</button>
+<button onclick="startLove()">Open Your Surprise 💖</button>
+</div>
+
+<div class="loveScreen" id="loveScreen">
+<div class="loveContent">
+<h1>Priyanka 🌹</h1>
+<p>
+From the moment you came into my life,  
+everything feels more beautiful.  
+Your smile is my favorite view,  
+your voice is my favorite sound. ❤️  
+
+I don’t just love you for today…  
+I choose you for every tomorrow. 🌹✨
+</p>
+</div>
 </div>
 
 <script>
-// Wait until page fully loads
-window.onload = function(){
-
-// MUSIC START ON FIRST CLICK
 const music = document.getElementById("bgMusic");
 
-document.body.addEventListener("click", function(){
-music.play().catch(()=>{});
-}, { once:true });
+function startLove(){
 
-// BUTTON FUNCTION
-window.showLove = function(){
-alert("You are my forever 🌹❤️");
-};
-
-// ROSE ANIMATION
-for(let i=0;i<30;i++){
-let petal=document.createElement("div");
-petal.className="petal";
-petal.innerHTML="🌹";
-petal.style.left=Math.random()*100+"vw";
-petal.style.animationDuration=(5+Math.random()*5)+"s";
-petal.style.fontSize=(15+Math.random()*20)+"px";
-document.body.appendChild(petal);
-}
-
-};
-</script>
-
-</body>
-</html>
+// PLAY MUSIC (Triggered by Button Click - Allowed)
+music.play().then(()=>{}).catch(
