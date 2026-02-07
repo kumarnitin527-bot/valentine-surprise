@@ -8,7 +8,7 @@
 <style>
 body{
 margin:0;
-font-family: 'Segoe UI', sans-serif;
+font-family:'Segoe UI', sans-serif;
 background:url("photo1.jpg") center/cover no-repeat;
 min-height:100vh;
 display:flex;
@@ -39,23 +39,17 @@ width:90%;
 max-width:500px;
 backdrop-filter: blur(10px);
 animation: fadeIn 1.5s ease-in-out;
+box-shadow:0 0 25px rgba(255,105,180,0.6);
 }
 
 h1{
-margin-bottom:5px;
 color:#ff9bb3;
+margin-bottom:5px;
 }
 
 h2{
 margin-top:0;
-font-weight:normal;
 color:#ffd6e0;
-}
-
-.introText{
-font-size:16px;
-margin-top:15px;
-line-height:1.6;
 }
 
 .photos{
@@ -72,11 +66,11 @@ height:120px;
 border-radius:15px;
 object-fit:cover;
 border:2px solid #ff9bb3;
-transition:0.3s;
+transition:0.4s;
 }
 
 .photos img:hover{
-transform:scale(1.05);
+transform:scale(1.08);
 }
 
 button{
@@ -96,12 +90,36 @@ transform:scale(1.1);
 }
 
 .loveMessage{
-display:none;
-margin-top:25px;
+margin-top:20px;
 font-size:17px;
-line-height:1.7;
-animation: fadeIn 1.5s ease-in-out;
-color:#ffe4ec;
+line-height:1.6;
+min-height:120px;
+}
+
+.heart{
+position:fixed;
+color:#ff4e50;
+font-size:20px;
+animation: floatUp 6s linear infinite;
+z-index:0;
+}
+
+@keyframes floatUp{
+0%{transform:translateY(100vh); opacity:1;}
+100%{transform:translateY(-10vh); opacity:0;}
+}
+
+.petal{
+position:fixed;
+top:-10px;
+font-size:18px;
+animation: fall 8s linear infinite;
+z-index:0;
+}
+
+@keyframes fall{
+0%{transform:translateY(-10vh) rotate(0deg);}
+100%{transform:translateY(110vh) rotate(360deg);}
 }
 
 @keyframes fadeIn{
@@ -118,13 +136,11 @@ to{opacity:1; transform:translateY(0);}
 <div class="card">
 
 <h1>Happy Rose Day 🌹</h1>
-<h2>My Beautiful Priyanka (Bhutki) ❤️</h2>
+<h2>My Priyanka (Bhutki) ❤️</h2>
 
-<div class="introText">
-From the moment you came into my life,  
-everything became brighter, softer and happier.  
-You are not just my girlfriend…  
-you are my peace, my smile, and my favorite notification 😌💕
+<div>
+You are my peace, my happiness,  
+and my favorite person in this world 💕
 </div>
 
 <div class="photos">
@@ -132,31 +148,74 @@ you are my peace, my smile, and my favorite notification 😌💕
 <img src="photo2.jpg">
 </div>
 
-<button onclick="showLove()">Click Here Bhutki 💖</button>
+<button onclick="startLove()">Open Your Surprise 💖</button>
 
-<div class="loveMessage" id="loveMessage">
-🌹 On this Rose Day 🌹 <br><br>
-I give you this rose with all my heart...  
-and along with it, my promise —  
-
-To irritate you forever,  
-To protect you always,  
-To support your dreams,  
-And to love you more every single day ❤️  
-
-You are my today.  
-You are my tomorrow.  
-And you are my forever, Bhutki 💕  
-
-Happy Rose Day, My Love 🌹✨
-</div>
+<div class="loveMessage" id="typeText"></div>
 
 </div>
+
+<audio id="bgMusic" loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
 
 <script>
-function showLove(){
-document.getElementById("loveMessage").style.display="block";
+
+// TYPEWRITER EFFECT
+const message = `🌹 On this Rose Day 🌹
+
+I may tease you,
+I may irritate you sometimes...
+
+But the truth is —
+You are the best thing that ever happened to me ❤️
+
+I promise to stand beside you,
+Support your dreams,
+And love you more every single day.
+
+You are my today.
+You are my tomorrow.
+You are my forever, Bhutki 💕`;
+
+let i = 0;
+
+function typeWriter(){
+if(i < message.length){
+document.getElementById("typeText").innerHTML += message.charAt(i);
+i++;
+setTimeout(typeWriter, 40);
 }
+}
+
+function startLove(){
+document.getElementById("bgMusic").play();
+if(i === 0){
+typeWriter();
+}
+}
+
+// FLOATING HEARTS
+setInterval(()=>{
+let heart=document.createElement("div");
+heart.className="heart";
+heart.innerHTML="💖";
+heart.style.left=Math.random()*100+"vw";
+heart.style.fontSize=(15+Math.random()*20)+"px";
+document.body.appendChild(heart);
+setTimeout(()=>heart.remove(),6000);
+},500);
+
+// FALLING ROSE PETALS
+setInterval(()=>{
+let petal=document.createElement("div");
+petal.className="petal";
+petal.innerHTML="🌹";
+petal.style.left=Math.random()*100+"vw";
+petal.style.fontSize=(15+Math.random()*15)+"px";
+document.body.appendChild(petal);
+setTimeout(()=>petal.remove(),8000);
+},800);
+
 </script>
 
 </body>
