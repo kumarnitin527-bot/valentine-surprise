@@ -1,86 +1,145 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Rose Day Bhutki 🌹</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<title>Happy Rose Day Priyanka -Nitin 🌹</title>
 
 <style>
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
 body{
-    min-height:100vh;
-    font-family:'Poppins',sans-serif;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    color:white;
-    overflow-x:hidden;
-}
-
-/* Background */
-.background{
-    position:fixed;
-    width:100%;
-    height:100%;
-    background:url('photo1.jpg') center/cover no-repeat;
-    filter:blur(8px) brightness(0.6);
-    z-index:-2;
-    animation:zoomBg 20s infinite alternate ease-in-out;
-}
-
-@keyframes zoomBg{
-    from{transform:scale(1);}
-    to{transform:scale(1.1);}
+font-family: Arial, sans-serif;
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background: url('photo1.jpg') center/cover no-repeat;
+color:white;
+text-align:center;
+overflow:hidden;
 }
 
 .overlay{
-    position:fixed;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.5);
-    z-index:-1;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
+z-index:-1;
 }
 
-/* Card */
 .card{
-    backdrop-filter: blur(20px);
-    background: rgba(255,255,255,0.1);
-    border-radius:25px;
-    padding:40px;
-    width:90%;
-    max-width:700px;
-    text-align:center;
-    box-shadow:0 20px 50px rgba(0,0,0,0.5);
-    animation:fadeIn 2s ease;
-}
-
-@keyframes fadeIn{
-    from{opacity:0; transform:translateY(40px);}
-    to{opacity:1; transform:translateY(0);}
+background:rgba(255,255,255,0.1);
+padding:30px;
+border-radius:20px;
+width:90%;
+max-width:600px;
+backdrop-filter: blur(10px);
 }
 
 h1{
-    font-family:'Dancing Script',cursive;
-    font-size:clamp(32px, 6vw, 50px);
-    margin-bottom:10px;
+font-size:28px;
+margin-bottom:10px;
 }
 
 h2{
-    font-weight:300;
-    margin-bottom:20px;
-    font-size:clamp(16px, 3vw, 22px);
+font-size:20px;
+margin-bottom:20px;
 }
 
 .photos{
-    display:flex;
-    justify-content:center;
-    gap:25px;
-    margin-bottom:20px;
-    flex-wrap:wr
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+margin-bottom:20px;
+}
+
+.photos img{
+width:120px;
+height:120px;
+border-radius:15px;
+object-fit:cover;
+}
+
+button{
+padding:10px 25px;
+border:none;
+border-radius:25px;
+background:white;
+color:#ff4e50;
+font-weight:bold;
+cursor:pointer;
+}
+
+.petal{
+position:absolute;
+top:-50px;
+font-size:20px;
+animation:fall linear infinite;
+}
+
+@keyframes fall{
+to{
+transform:translateY(110vh) rotate(360deg);
+opacity:0;
+}
+}
+
+@media(max-width:480px){
+.photos img{
+width:100px;
+height:100px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<div class="overlay"></div>
+
+<audio id="bgMusic" loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<div class="card">
+<h1>Happy Rose Day 🌹</h1>
+<h2>My Priyanka (Bhutki) ❤️</h2>
+
+<div class="photos">
+<img src="photo1.jpg">
+<img src="photo2.jpg">
+</div>
+
+<p>You are my favorite person and my forever smile ❤️</p>
+<br>
+<button onclick="startLove()">Tap Here Bhutki 💖</button>
+</div>
+
+<script>
+const music = document.getElementById("bgMusic");
+
+document.addEventListener("click", function(){
+music.play();
+}, { once:true });
+
+function startLove(){
+alert("You are my always ❤️🌹");
+}
+
+for(let i=0;i<25;i++){
+let petal=document.createElement("div");
+petal.className="petal";
+petal.innerHTML="🌹";
+petal.style.left=Math.random()*100+"vw";
+petal.style.animationDuration=(5+Math.random()*5)+"s";
+document.body.appendChild(petal);
+}
+</s
