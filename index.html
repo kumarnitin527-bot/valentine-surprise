@@ -36,7 +36,7 @@ background:rgba(0,0,0,0.7);
 z-index:-1;
 }
 
-/* Card */
+/* Main Card */
 .card{
 background:rgba(255,255,255,0.1);
 padding:30px;
@@ -71,133 +71,12 @@ height:120px;
 border-radius:15px;
 object-fit:cover;
 box-shadow:0 10px 25px rgba(0,0,0,0.7);
-}
-
-p{
-margin-bottom:20px;
-font-size:16px;
-}
-
-button{
-padding:12px 28px;
-border:none;
-border-radius:30px;
-background:white;
-color:#ff4e50;
-font-weight:bold;
-cursor:pointer;
 transition:0.3s;
 }
 
-button:hover{
-background:#ff4e50;
-color:white;
+.photos img:hover{
+transform:scale(1.05);
 }
 
-/* Falling roses */
-.petal{
-position:absolute;
-top:-50px;
-font-size:20px;
-animation:fall linear infinite;
-pointer-events:none;
-}
-
-@keyframes fall{
-to{
-transform:translateY(110vh) rotate(360deg);
-opacity:0;
-}
-}
-
-/* Love Screen */
-.loveScreen{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.95);
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:20px;
-opacity:0;
-visibility:hidden;
-transition:0.8s;
-}
-
-.loveScreen.active{
-opacity:1;
-visibility:visible;
-}
-
-.loveContent{
-max-width:600px;
-}
-
-.loveContent h1{
-font-size:32px;
-margin-bottom:20px;
-}
-
-.loveContent p{
-font-size:18px;
-line-height:1.6;
-}
-
-@media(max-width:480px){
-.photos img{
-width:100px;
-height:100px;
-}
-}
-</style>
-</head>
-
-<body>
-
-<audio id="bgMusic" loop>
-<source src="music.mp3" type="audio/mpeg">
-</audio>
-
-<div class="card">
-<h1>Happy Rose Day 🌹</h1>
-<h2>My Priyanka (Bhutki) ❤️</h2>
-
-<div class="photos">
-<img src="photo1.jpg" alt="Me">
-<img src="photo2.jpg" alt="Her">
-</div>
-
-<p>
-Bhutki ❤️  
-You make my world brighter every single day.
-</p>
-
-<button onclick="startLove()">Open Your Surprise 💖</button>
-</div>
-
-<div class="loveScreen" id="loveScreen">
-<div class="loveContent">
-<h1>Priyanka 🌹</h1>
-<p>
-From the moment you came into my life,  
-everything feels more beautiful.  
-Your smile is my favorite view,  
-your voice is my favorite sound. ❤️  
-
-I don’t just love you for today…  
-I choose you for every tomorrow. 🌹✨
-</p>
-</div>
-</div>
-
-<script>
-const music = document.getElementById("bgMusic");
-
-function startLove(){
-
-// PLAY MUSIC (Triggered by Button Click - Allowed)
-music.play().then(()=>{}).catch(
+p{
+margin-bo
